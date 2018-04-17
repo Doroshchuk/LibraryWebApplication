@@ -13,14 +13,11 @@ public class Servlet extends HttpServlet {
     private static String index = "/WEB-INF/view/index.jsp";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
-
         request.getRequestDispatcher(index).forward(request, response);
+    }
 
-//        PrintWriter out = response.getWriter();
-//        out.println("<h3>Hello, Миша</h3>");
-//        out.close();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        final String data = request.getParameter("fname");
+        System.out.println(data);
     }
 }
